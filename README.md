@@ -1,51 +1,67 @@
+
 # Redfin UXE Gallery Challenge
-We would like you to build an application to display images in a gallery. This challenge is estimated to take around 2 hours.
 
-
-## App Requirements / Mini-Spec
-The application must:
-
-- Show photos in a grid view on the initial load
-- Support a fullscreen mode
-    - When the user clicks on an image, it will show the entire image fullscreen
-    - When the user clicks on a "close" button or the background, it will close and return to the grid view
-- Works in Chrome; we will not be evaluating other browsers for compatibility
-- Support different viewports such as phone/tablet and notebook/desktop viewports
-- Query an API for a set of photos
-    - Sample data is provided in the attached photos.json file, but you must access it via a HTTP request as if it was an API endpoint
-- Use only vanilla JavaScript; we won't accept solutions that use frameworks like React, Vue, etc. or libraries like jQuery, Axios, etc.
-    - ES6/ESNext and any required polyfills are perfectly acceptable, but not required
-
-Example mockups are provided in the `examples` folder of the challenge download; _you do not need to match them precisely_, but be prepared to explain the reasoning behind your design decisions!
-
-**You must also include a README file** that, in a few paragraphs, describes what additional changes and technical decisions you would make to your application if more time was available. Provide some detail about how they might be implemented if this project was to be released to Redfin's customers on our website. Think about design, maintainability, reusability, and your technical implementation — don't _just_ add pagination, although it'd be a great improvement!
-
-**We will be evaluating your documentation along with your code!**
-
-You are welcome to use any web server you like. For simplicity, we recommend using Python's SimpleHTTPServer, if you have Python available, or [Chrome Web Server][cws].
+This project displays the available images in a gallery grid-view and shows a large/full-size version of an image if users selects one.
 
 ## Quickstart with Python SimpleHTTPServer
 
 1. Download the [template code][code] provided and unzip anywhere, such as `~/code/myfolder`.
+
 2. From the command line:
 
-	      cd ~/code/myfolder
-	      python -m SimpleHTTPServer 8887
+cd ~/code/myfolder
+
+python -m SimpleHTTPServer 8887  
 
 3. Open `http://localhost:8887/index.html` and
-`http://localhost:8887/data/photos.json` in your browser. You should see a “Hello, World!” page and JSON data.
 
+`http://localhost:8887/data/photos.json` in your browser. You should see a “Hello, World!” page and JSON data.
 
 ## Quickstart with Chrome Web Server
 
 1. Download the [template code][code] provided and unzip anywhere, such as `~/code/myfolder`.
+
 2. Launch the Chrome Web Server
+
 3. Click _choose folder_ and set to `~/code/myfolder`.
+
 4. Open `http://localhost:8887/index.html` and `http://localhost:8887/data/photos.json` in your browser. You should see a “Hello World” page and JSON data.
 
-## Missing Images
-The data in `photos.json` comes from the [Unsplash API][unsplash]. Occasionally photos are removed from their website, so if one is broken feel free to remove it or replace that index with a repeated image from the data. There should be a fallback image letting you know it couldn't be found, so you don't have to replace it because an image will still be there.
+## Hosted Site information
+You can also access the app using this link: [Gallery-Challenge-App](http://gallery-challenge.surge.sh/)
 
-[cws]: https://chrome.google.com/webstore/detail/web­server­for­chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en
-[code]:https://drive.google.com/open?id=1S5mLGgLd9JGM1jmlaely0N2vEMGn6x-I
-[unsplash]:https://unsplash.com/developers
+## Possible Enhancements
+This project can be extended in several ways by adding more functionalities and features to it. Few suggestions are mentioned below.
+* Lazy-loading of images can be done on the main page to avoid any delays during the initial page load.
+* Page loader can be added before at the page load to let the user know the request is still in process.
+* When the user hovers on an image, it can be highlighted with a shadow and the title text must display the image description using default html pop-over.
+* Image slider can be added to the modal-view.
+* The slider should also support navigation using arrow keys.
+* More information about the image and user can be displayed in modal view.
+
+## Design suggestions
+
+In order to make this project, efficient with regards to performance and to give a user a best experience, I would like to suggest the below design decisions.
+* The application can be made into a Single-page application (SPA) for sleek-performance without any reloads or browser navigation (with built-in router).
+* Component-based frameworks like React or Vue could be used.
+* The data should be stored in a Store, which would act as the Single source of truth and mutations should happen only through the setters or mutators.
+* I would split up the elements into components and create the following components in order to enable maintainability and reusability.
+	* Main page component
+	* Image wrap component
+	* Image component
+	* Modal component
+	* FullImageHolder component
+	* FullImage component
+	* ImageInfo component
+
+(The above list is only for the functionalities currently implemented and not for the future enhancements or suggestions). 
+
+## Screenshots
+
+![image](/screenshots/MainPage.png?raw=true "Gallery-MainPage")
+
+![image](/screenshots/FullImage.png?raw=true "Gallery-FullImage")
+
+## License
+
+MIT
