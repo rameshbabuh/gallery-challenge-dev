@@ -1,3 +1,13 @@
+/*
+*	index.css - css rules for the image gallery
+*	Author - Ramesh
+*	Created on 07/28/2019
+*/
+
+/*
+*   Simple Reset-styles to reset the default browser styling so that paddings and borders will be included in the
+*   total widths and heights of the elements.
+*/
 * {
     box-sizing: border-box;
 }
@@ -16,22 +26,25 @@ h1{
     padding-left: 0.5rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+/* Making the images wrapper div to be display flex */
 #imgWrap{
     display: flex;
     flex-wrap: wrap;
     padding: 0.3125rem;
 }
+/* Using rem sizing relative to the root element */
 .image{
     width: 14.5rem;
     height: 14.5rem;
     padding: 0.3125rem;
     cursor: pointer;
 }
+/* Simulating a Modal using below CSS Rules */
 .modal{
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 5%; /* Location of the box */
+    padding-top: 30px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -39,30 +52,27 @@ h1{
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
 }
-/* Modal Content */
 .modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 10px 30px;
     border: 1px solid #888;
     width: 75%;
-    height: 92%;
+    height: 95%;
 }
-/* The Close Button */
 .close {
     color: #aaaaaa;
     float: right;
     font-size: 21px;
     font-weight: bold;
 }
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 #fullImageHolder{
-    height: calc(100% - 100px);
+    height: calc(100% - 118px);
     margin-top: 21px;
 }
 .fullImage{
@@ -70,6 +80,31 @@ h1{
     width: 100%;
     max-height: 100%;
 }
+#fullImageInfo h3{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 .modal-content p{
     margin: 0;
+}
+/* Media Queries */
+/* Mobile Devices */
+@media only screen and (max-width: 500px){
+    .image{
+        width: 22.875rem;
+        height: 22.875rem;
+    }
+    #fullImageHolder{
+        height: 220px;
+    }
+    .modal-content{
+        height: 400px;
+    }
+}
+
+/* Tablets */
+@media only screen and (max-width: 980px){
+    .modal-content{
+        width: 330px;
+        height: 330px;
+    }
 }
