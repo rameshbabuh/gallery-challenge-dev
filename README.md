@@ -54,7 +54,7 @@ In order to make this project, efficient with regards to performance and to give
 	* FullImage component
 	* ImageInfo component
 
-(The above list is only for the functionalities currently implemented and not for the future enhancements or suggestions). 
+(The above component list is only for the functionalities currently implemented and not for the future enhancements or suggestions). 
 
 ## Screenshots
 
